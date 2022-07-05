@@ -13,7 +13,7 @@ app.use(express.json());
 
 // step 9 now in the body in thunder client enter the data 
 
-// get is used to get the data; using CRUD OPERATIONS
+// get is used to get the data; for e.g in the form index.html
 
 app.get("/api/v1/user",(req,res)=>{
     // in api we dont send the file.we only send the Json file
