@@ -1,5 +1,7 @@
 const express=require("express");
 
+const path=require("path");
+
 const app=express();
 
 const port=4000;
@@ -15,18 +17,23 @@ app.use(express.json());
 
 // get is used to get the data; for e.g in the form index.html
 
-app.get("/api/v1/user",(req,res)=>{
-    // in api we dont send the file.we only send the Json file
-    res.json({
-        name:"harsh",
-        email:"sample@gmail.com",
-        password:"hexamed"
+// app.get("/api/v1/user",(req,res)=>{
+//     // in api we dont send the file.we only send the Json file
+//     res.json({
+//         name:"harsh",
+//         email:"sample@gmail.com",
+//         password:"hexamed"
 
-    })
+//     })
+// })
+// step 10 now again we will use the html form and lets see
+app.get("/",(req,res)=>{
+    res.sendFile(path.join(__dirname)+"/index.html");
+
 })
-
 // POST is used to read the form data in the html and save the data 
 app.post("/api/v1/register",(req,res)=>{
+
     // step 6.we will declare the the variable in the mongb itself only but we will use the function
     const username=req.body.name
     const useremail=req.body.email
